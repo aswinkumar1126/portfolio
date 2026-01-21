@@ -1,8 +1,9 @@
+
 import express from 'express';
 import next from 'next';
 import dotenv from 'dotenv';
-import backendApp from '@/backend/app.js';
-import { connectDB } from '@/backend/config/db.js';
+import backendApp from './backend/app.js';
+import { connectDB } from './backend/config/db.js';
 
 dotenv.config();
 
@@ -11,7 +12,7 @@ const nextApp = next({ dev });
 const handle = nextApp.getRequestHandler();
 
 await nextApp.prepare();
-connectDB();
+await connectDB();
 
 const server = express();
 
@@ -19,7 +20,7 @@ const server = express();
 server.use(backendApp);
 
 // let Next.js handle frontend routes
-server.all('*', (req, res) => handle(req, res));
+server.use((req, res) => handle(req, res));
 
 server.listen(3000, () => {
   console.log('Next.js + Express running on http://localhost:3000');

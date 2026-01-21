@@ -1,4 +1,4 @@
-import { getAllSkills , uploadSkills } from "@/backend/controller/skill/skillController";
+import { getAllSkills , uploadSkills } from "../../controller/skill/skillController.js";
 import express from "express";
 
 const router = express.Router();

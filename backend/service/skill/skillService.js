@@ -1,4 +1,4 @@
-import Skill from '@/backend/model/skill/skillModel.js';
+import Skill from '../../model/skill/skillModel.js';
 
 const getSkills = async () => {
   try {

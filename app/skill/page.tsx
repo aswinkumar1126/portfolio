@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 
 export default function Skills() {
-  const [skills, setSkills] = useState([]);
+  const [skills, setSkills] = useState<{_id:string , name:string}[]>([]);
   console.log("Skills component rendered" ,skills);
 
   useEffect(() => {
@@ -13,9 +13,9 @@ export default function Skills() {
 
   return (
     <ul>
-      {/* {skills.map(s => (
+      {skills.map(s => (
         <li key={s._id}>{s.name}</li>
-      ))} */}
+      ))}
       <p>hi</p>
     </ul>
   );

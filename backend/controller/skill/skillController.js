@@ -1,4 +1,4 @@
-import { getSkills , uploadSkill } from "@/backend/service/skill/skillService";
+import { getSkills , uploadSkill } from "../../service/skill/skillService.js";
 
 const getAllSkills = async (req, res) => {
     try {
