@@ -21,6 +21,24 @@ const uploadSkill = async (skillsData) => {
     }
 };
 
+ const updateSkill = async (skillId, updateData) => {
+  const updatedSkill = await Skill.findByIdAndUpdate(
+    skillId,
+    updateData,
+    {
+      new: true,
+      runValidators: true, // mongoose validation
+    }
+  );
 
-export { getSkills , uploadSkill };
+  if (!updatedSkill) {
+    const error = new Error("Skill not found");
+    error.statusCode = 404;
+    throw error;
+  }
+
+  return updatedSkill;
+};
+
+export { getSkills , uploadSkill ,updateSkill };
 

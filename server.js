@@ -1,13 +1,11 @@
-
+import 'dotenv/config';   // 👈 MUST be first
 import express from 'express';
 import next from 'next';
-import dotenv from 'dotenv';
 import backendApp from './backend/app.js';
 import { connectDB } from './backend/config/db.js';
 
-dotenv.config();
-
 const dev = process.env.NODE_ENV !== 'production';
+
 const nextApp = next({ dev });
 const handle = nextApp.getRequestHandler();
 
