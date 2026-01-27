@@ -38,9 +38,10 @@ export const getProjectByIdController = async (req, res) => {
 export const createProjectController = async (req, res) => {
   try {
     // 1️⃣ Map Cloudinary response
+    console.log("Uploaded files:", req.files);
     const images = req.files?.map((file, index) => ({
       url: file.path,          // Cloudinary URL
-      alt: req.body.name || "project image",
+      altText: req.body.name || "project image",
       isCover: index === 0,
     }));
 
@@ -49,6 +50,8 @@ export const createProjectController = async (req, res) => {
       ...req.body,
       images,
     });
+    console.log("Validated Data:", validatedData);
+  
 
     // 3️⃣ Save
     const project = await createProject(validatedData);
