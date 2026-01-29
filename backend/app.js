@@ -9,8 +9,8 @@ app.use(cors());
 
 app.use(express.json());
 
-app.use('/api/skills', skillRoute);
-app.use('/api/projects', projectRouter);
+app.use('/api/v1/skills', skillRoute);
+app.use('/api/v1/projects', projectRouter);
 
 
 export default app;

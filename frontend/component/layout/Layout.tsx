@@ -4,13 +4,11 @@
 import Header from "./header/Header";
 import Footer from "./footer/Footer";
 
-const LayoutWrapper = ({ children }) => {
+const LayoutWrapper = ({ children }: any) => {
     return (
         <>
             <Header />
-                <main className="min-h-screen pt-20 pb-10 px-4 bg-black dark:bg-black">
-
-                    
+                <main className="min-h-screen pt-20 pb-10 px-4 bg-primary dark:bg-primary">
                     {children}
                 </main>
             <Footer />

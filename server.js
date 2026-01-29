@@ -13,6 +13,7 @@ await nextApp.prepare();
 await connectDB();
 
 const server = express();
+const PORT = process.env.PORT || 3000;
 
 // mount backend first
 server.use(backendApp);
@@ -20,6 +21,6 @@ server.use(backendApp);
 // let Next.js handle frontend routes
 server.use((req, res) => handle(req, res));
 
-server.listen(3000, () => {
-  console.log('Next.js + Express running on http://localhost:3000');
+server.listen(PORT, () => {
+  console.log(`Next.js + Express running on http://localhost:${PORT}`);
 });
